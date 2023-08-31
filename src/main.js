@@ -7,7 +7,7 @@ canvas.height = DISPLAY_PIXEL.height * ASPECT_RATIO.height;
 const playerProperty = {
   width: 50,
   height: 50,
-  speed: 5,
+  speed: 3,
   color: "tomato",
   position: {
     x: 0,
@@ -33,7 +33,7 @@ const enemy = new Player(enemyProperty);
 const animate = () => {
   ground.create();
   player.create();
-  enemy.create();
+  // enemy.create();
 
   player.update();
 
@@ -41,7 +41,22 @@ const animate = () => {
 };
 
 window.addEventListener("keydown", function(callback){
-    player.movement(callback.key)
+  switch (callback.key) {
+    case "ArrowUp":
+        player.jump()
+        break
+        
+    case "ArrowLeft":
+        player.moveLeft()
+        break
+
+    case "ArrowRight":  
+        player.moveRight()
+        break
+
+    default:
+        break
+}
 })
 
 animate();

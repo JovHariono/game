@@ -27,11 +27,11 @@ class Player{
                 break
                 
             case "ArrowLeft":
-                this.velocity.x = -1
+                this.velocity.x = -1 * this.speed
                 break
 
             case "ArrowRight":
-                this.velocity.x = 1
+                this.velocity.x = 1 * this.speed
                 break
 
             default:

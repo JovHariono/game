@@ -7,11 +7,11 @@ canvas.height = DISPLAY_PIXEL.height * ASPECT_RATIO.height;
 const playerProperty = {
   width: 50,
   height: 50,
-  speed: 1,
+  speed: 5,
   color: "tomato",
   position: {
     x: 0,
-    y: canvas.height / 2,
+    y: 0,
   },
 };
 
@@ -22,11 +22,11 @@ const enemyProperty = {
   color: "black",
   position: {
     x: canvas.width - 50,
-    y: canvas.height / 2,
+    y: canvas.height - 50,
   },
 };
 
-const ground = new Ground(canvas.width, canvas.height, "lightblue");
+const ground = new Ground("./src/asset/bg.jpg", canvas.width, canvas.height);
 const player = new Player(playerProperty);
 const enemy = new Player(enemyProperty);
 
@@ -36,7 +36,6 @@ const animate = () => {
   enemy.create();
 
   player.update();
-  enemy.update();
 
   window.requestAnimationFrame(animate);
 };
